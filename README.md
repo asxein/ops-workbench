@@ -11,7 +11,7 @@ Cofa-Probe 형식 과제(제한 시간 안에 README 기반 업무 과제를 코
 | `prompts.md` | 세션별 프롬프트 카드 (P1~P3, M0~M4, V1~V3, D1~D3, F1) |
 | `flow.md` | 시간순 세션 운영 플로우 (분 단위, 세션 실행 명령, 완료 보고 검증 3종) |
 | `session-card.md` | 세션 역할·태그 체크포인트·키트 결정 트리 |
-| `templates/` | PLAN(PRD)·NOTES·HANDOFF·CHECKLIST 뼈대 |
+| `templates/` | PLAN(PRD)·NOTES·HANDOFF·CHECKLIST 뼈대 + **UICHECK**(내가 직접 하는 5분 UI·데이터 검증 카드) |
 | `security.md` | 보안·런타임 기준선: 시작 3분 버전 기록, 지원 중/EOL 표, 코드 수준 기본 다섯 줄, HANDOFF 보안 섹션 틀 |
 | `catalog.md` | **스택 카탈로그**: 계층별 자체 모듈 후보(외부 패키지·타인 저장소 없음), 근거·위험, 결정 표 작성 규칙(승인/변경/컷) |
 | `modules/` | 조합 가능한 자체 모듈 8종(설치 없음, 모듈별 테스트): server-std, csv-std, ingest-std, repo-memory, repo-sqlite, search-keyword, report-md, ui-table |
@@ -25,7 +25,7 @@ cd ~ && git clone https://github.com/asxein/probe-kit.git kit
 cd <작업 폴더>
 mkdir -p docs/plan docs/handoff
 cp ~/kit/AGENTS.md ./AGENTS.md
-cp ~/kit/templates/PLAN.md docs/plan/PRD.md
+cp ~/kit/templates/PLAN.md docs/plan/PRD.md && cp ~/kit/templates/UICHECK.md docs/plan/
 cp ~/kit/templates/NOTES.md ~/kit/templates/HANDOFF.md docs/handoff/
 cp ~/kit/templates/CHECKLIST.md ./CHECKLIST.md
 # 모듈은 PRD 스택 결정표에서 승인된 것만 복사 (예: A 유형)

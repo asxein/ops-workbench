@@ -9,7 +9,7 @@ description: PRD 스택 결정표에서 사용자가 승인한 모듈만 modules
 
 절차
 1. `docs/plan/PRD.md` 5장 스택 결정표에서 "사용자 결정 = 승인"인 행의 모듈만 `modules/<이름>/`에서 복사한다(코드는 src/, index.html은 public/, 테스트는 test/). import 경로를 `./`로 정리하고 package.json(start, test)을 만든다. 승인되지 않은 모듈은 복사하지 않는다. 이미 같은 파일이 있으면 덮어쓰지 않고 보고한다.
-2. `templates/`의 PLAN.md → `docs/plan/PRD.md`, NOTES.md·HANDOFF.md → `docs/handoff/`, CHECKLIST.md → 루트. README가 문서 파일명을 지정했으면 그 이름을 쓴다.
+2. `templates/`의 PLAN.md → `docs/plan/PRD.md`, UICHECK.md → `docs/plan/`, NOTES.md·HANDOFF.md → `docs/handoff/`, CHECKLIST.md → 루트. README가 문서 파일명을 지정했으면 그 이름을 쓴다.
 3. `CHECKLIST.md`에 README의 필수조건과 제출물 파일명을 체크박스로 옮긴다.
 4. `npm test`를 실제로 실행하고 출력을 보고한다.
 5. `git add -A && git commit -m "chore: scaffold"` 명령을 완료 보고에 포함한다.
