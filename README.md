@@ -24,7 +24,9 @@
 ## 과제 시작 시 적용 (5분)
 
 ```bash
-cd /tmp && git clone https://github.com/asxein/ops-workbench.git kit && cd ~
+cd /tmp
+git clone https://github.com/asxein/ops-workbench.git kit
+cd ~
 cd <작업 폴더>
 mkdir -p docs/plan docs/handoff
 cp /tmp/kit/AGENTS.md ./AGENTS.md

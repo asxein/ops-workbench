@@ -13,7 +13,7 @@
 
 | 내가 치는 것 | 내가 읽는 것 | 내가 정하는 것 |
 |---|---|---|
-| M탭: `cd /tmp && git clone https://github.com/asxein/ops-workbench.git kit && cd ~`, `node /tmp/kit/tools/preflight.mjs .` (결과 한 줄을 NOTES 런타임 줄로, 주의 항목은 바로 처리) | README **두 번** (제출물 파일명, 필수조건, 없는 것) | 1차 질문 3~4개(내 말, 번호, 한 메시지) → 담당자 DM 발사 |
+| M탭: `cd /tmp` → `git clone https://github.com/asxein/ops-workbench.git kit` → `cd ~`, `node /tmp/kit/tools/preflight.mjs .` (결과 한 줄을 NOTES 런타임 줄로, 주의 항목은 바로 처리) | README **두 번** (제출물 파일명, 필수조건, 없는 것) | 1차 질문 3~4개(내 말, 번호, 한 메시지) → 담당자 DM 발사 |
 
 ## 3~5분 · 키트 적용, 세션 3개
 
