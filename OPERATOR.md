@@ -13,7 +13,7 @@
 
 | 내가 치는 것 | 내가 읽는 것 | 내가 정하는 것 |
 |---|---|---|
-| M탭: `cd ~ && git clone https://github.com/asxein/ops-workbench.git kit`, `node --version; npm -v; python3 --version; git --version` (결과는 NOTES 런타임 줄로) | README **두 번** (제출물 파일명, 필수조건, 없는 것) | 1차 질문 3~4개(내 말, 번호, 한 메시지) → 담당자 DM 발사 |
+| M탭: `cd ~ && git clone https://github.com/asxein/ops-workbench.git kit`, `node ~/kit/tools/preflight.mjs .` (결과 한 줄을 NOTES 런타임 줄로, 주의 항목은 바로 처리) | README **두 번** (제출물 파일명, 필수조건, 없는 것) | 1차 질문 3~4개(내 말, 번호, 한 메시지) → 담당자 DM 발사 |
 
 ## 3~5분 · 키트 적용, 세션 3개
 
@@ -55,7 +55,7 @@
 |---|---|---|
 | M탭: M1 복붙(@docs/plan/PRD.md) | 승인 요청이 뜨면 **즉시** 읽고 승인/거절 | — |
 | 기다리는 동안: Browser 탭에 PORT 입력 준비, 90분 중간 확인 문구 작성 | — | — |
-| 완료 보고가 오면 **검증 3종**: `git diff --stat prd-v1..HEAD` / `curl …` 또는 Browser 클릭 / "어느 파일 어느 함수" | diff 목록에 핵심 파일이 있나, 출력에 수용 조건이 보이나 | 사실이면 `git add -A && git commit -m "feat: e2e v0" && git tag v0`. 아니면 "미완료, 원인부터" |
+| 완료 보고가 오면 `node ~/kit/tools/gate.mjs --since prd-v1 --url … --expect …` (**검증 3종을 스크립트로**: diff·테스트·수용 조건) + "어느 파일 어느 함수" 한 줄 질문 | diff 목록에 핵심 파일이 있나, 출력에 수용 조건이 보이나 | 사실이면 `git add -A && git commit -m "feat: e2e v0" && git tag v0`. 아니면 "미완료, 원인부터" |
 | **수동 UI 카드 A1~A5** (templates/UICHECK.md, 5분): 첫 화면·필터·기본 정렬·내려받기·경계값을 내 손으로 | 표의 기대 vs 실제 | 실패 줄은 M3 목록 맨 위로. 표는 REVIEW.md에 붙인다 |
 
 ## 65~70분 · 첫 검증
@@ -68,7 +68,7 @@
 
 | 내가 치는 것 | 내가 읽는 것 | 내가 정하는 것 |
 |---|---|---|
-| M탭: M3(기능 1개, 수용 기준은 담당자 말 인용) | 완료 보고 → 검증 3종 → **UI 카드 해당 줄 1개** (30초) | 커밋 전 **핵심 함수를 내 말로 10초 설명**. 못 하면 M에 "3줄로 설명" |
+| M탭: M3(기능 1개, 수용 기준은 담당자 말 인용) | 완료 보고 → `gate.mjs --since <직전태그> --url … --expect …` → **UI 카드 해당 줄 1개** (30초) | 커밋 전 **핵심 함수를 내 말로 10초 설명**. 못 하면 M에 "3줄로 설명" |
 | D탭: 결정마다 D2 한 줄 | — | — |
 | 90분: 담당자 중간 확인 DM / 95분: V2 체크포인트 5줄 | 진행률, 범위 축소 제안 | 100분에 v0가 안 돌면 범위 축소 결정 → NOTES |
 

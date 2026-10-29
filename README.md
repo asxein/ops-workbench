@@ -13,6 +13,8 @@
 | `session-card.md` | 세션 역할·태그 체크포인트·키트 결정 트리 |
 | `templates/` | PLAN(PRD)·NOTES·HANDOFF·CHECKLIST 뼈대 + **UICHECK**(내가 직접 하는 5분 UI·데이터 검증 카드) |
 | `security.md` | 보안·런타임 기준선: 시작 3분 버전 기록, 지원 중/EOL 표, 코드 수준 기본 다섯 줄, HANDOFF 보안 섹션 틀 |
+| `tools/preflight.mjs` | 시작 3분 환경 점검(런타임·보안 릴리스 반영 여부·node:sqlite·0.0.0.0 바인딩·git·비밀값 스캔). 읽기만, 설정 변경 없음 |
+| `tools/gate.mjs` | 완료 보고 검증 게이트: 직전 태그 이후 src 변경 여부 + 테스트 실제 실행 + 수용 조건 URL 확인. 검증 항목 0개면 exit 2 |
 | `catalog.md` | **스택 카탈로그**: 계층별 자체 모듈 후보(외부 패키지·타인 저장소 없음), 근거·위험, 결정 표 작성 규칙(승인/변경/컷) |
 | `modules/` | 조합 가능한 자체 모듈 8종(설치 없음, 모듈별 테스트): server-std, csv-std, ingest-std, repo-memory, repo-sqlite, search-keyword, report-md, ui-table |
 | `skills/` | Codex 스킬 3종: `task-onboard`(과제 유형 판별 → RUNPLAN), `task-frame`(조사·질문·접근안), `task-scaffold`(뼈대 생성) |
@@ -33,6 +35,7 @@ mkdir -p src public test && cp ~/kit/modules/server-std/server.mjs ~/kit/modules
 # 복사 후 import 경로를 ./ 로 정리한다
 # 스킬 인식 경로는 환경 안내를 따른다
 mkdir -p .agents/skills && cp -r ~/kit/skills/* .agents/skills/
+node ~/kit/tools/preflight.mjs .      # 결과 한 줄을 docs/handoff/NOTES.md 런타임 줄에
 git add -A && git commit -m "chore: add working rules, doc templates, scaffold (from public ops-workbench)"
 ```
 
@@ -56,6 +59,15 @@ cd docs/handoff && codex           # D 문서·핸드오프 (docs/handoff 아래
 
 실행 플래그로 승인 정책·모델을 바꾸지 않는다. 제공 환경의 기본 설정을 그대로 쓰고, 모델은 `/model`, 현재 설정은 `/status`로 확인한다. 쓰기 범위는 "어느 폴더에서 codex를 실행했는가"로만 정해진다.
 ```
+
+## 완료 보고 검증 (매 기능마다)
+
+```bash
+node ~/kit/tools/gate.mjs --since v0 --url "http://localhost:3000/api/rows?size=5" --expect "기대 문자열"
+# exit 0 커밋 가능 / 1 실패 → 원인부터 / 2 검증한 게 없음
+```
+
+게이트는 사람의 검증 3종(diff·출력·파일명)을 스크립트로 묶은 것이다. 통과해도 Browser 탭에서 눈으로 한 번 더 본다(UICHECK).
 
 ## 모듈 테스트
 
