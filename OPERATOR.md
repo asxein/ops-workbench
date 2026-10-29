@@ -20,7 +20,7 @@
 | 내가 치는 것 | 내가 읽는 것 | 내가 정하는 것 |
 |---|---|---|
 | M탭: README의 "과제 시작 시 적용" 블록 그대로(`mkdir -p docs/plan docs/handoff`, cp…, `git add -A && git commit -m "chore: …"`) | 복사된 파일 목록 | README가 문서 파일명을 지정했으면 그 이름으로 복사 |
-| M탭: 루트에서 `codex` / P탭: `cd docs/plan && codex` / D탭: `cd docs/handoff && codex` | 각 탭 `/status`: 모델·설정 확인. 모델은 `/model`로 Sol 6.1(D는 Luna 선택 가능) | 설정 플래그는 쓰지 않는다 |
+| M탭: 루트에서 `codex` / P탭: `cd docs/plan && codex` / D탭: `cd docs/handoff && codex` | 각 탭 `/status`: 모델·설정 확인. 모델은 `/model`로 Sol 6.1(D는 Luna 선택 가능). 권한은 **M = Auto + `/fast`(켠 뒤 `/status`에서 모델명 그대로인지 확인), P→V = Auto, D = Auto. Full access(YOLO)는 쓰지 않는다** | 설정 플래그는 쓰지 않는다 |
 
 ## 5~8분 · 온보딩 (P탭)
 
