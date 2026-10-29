@@ -3,12 +3,14 @@
 키트는 **작업 폴더 밖(/tmp/kit)** 에 둔다. 작업 폴더가 홈(~)이고 그 자체가 git 저장소인 환경이 있어서, 안에 두면 제출물 diff에 섞인다.
 
 ```bash
-# -1) 시작 5줄 (키트는 /tmp, 작업은 ~)
+# -1) 시작 5줄 (키트는 /tmp, 작업은 ~). 4번째 줄이 아래 0~3번을 전부 대신한다
 cd /tmp
 git clone https://github.com/asxein/ops-workbench.git kit
 cd ~
-cat /tmp/kit/QUICKSTART.md
-# codex 는 0~3번을 마친 뒤 작업 폴더(~)에서 켠다
+bash /tmp/kit/tools/setup.sh
+codex
+
+# ---- 아래는 setup.sh가 하는 일(수동으로 할 때만) ----
 
 # 0) 첫 커밋 전 잡파일 제외 (작업 폴더가 ~ 이고 "No commits yet" 일 때)
 printf ".npm/

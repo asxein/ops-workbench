@@ -14,6 +14,7 @@
 | `session-card.md` | 세션 역할·태그 체크포인트·키트 결정 트리 |
 | `templates/` | PLAN(PRD)·NOTES·HANDOFF·CHECKLIST 뼈대 + **UICHECK**(내가 직접 하는 5분 UI·데이터 검증 카드) |
 | `security.md` | 보안·런타임 기준선: 시작 3분 버전 기록, 지원 중/EOL 표, 코드 수준 기본 다섯 줄, HANDOFF 보안 섹션 틀 |
+| `tools/setup.sh` | 시작 세팅 한 줄: .gitignore·첫 커밋·docs 폴더·템플릿·스킬·preflight |
 | `tools/preflight.mjs` | 시작 3분 환경 점검(런타임·보안 릴리스 반영 여부·node:sqlite·0.0.0.0 바인딩·git·비밀값 스캔). 읽기만, 설정 변경 없음 |
 | `tools/gate.mjs` | 완료 보고 검증 게이트: 직전 태그 이후 src 변경 여부 + 테스트 실제 실행 + 수용 조건 URL 확인. 검증 항목 0개면 exit 2 |
 | `catalog.md` | **스택 카탈로그**: 계층별 자체 모듈 후보(외부 패키지·타인 저장소 없음), 근거·위험, 결정 표 작성 규칙(승인/변경/컷) |
@@ -21,26 +22,17 @@
 | `skills/` | Codex 스킬 3종: `task-onboard`(과제 유형 판별 → RUNPLAN), `task-frame`(조사·질문·접근안), `task-scaffold`(뼈대 생성) |
 | `playbooks/` | 유형별 실행 각본(playbook): A 데이터→화면/리포트, B 기존 코드 수정, C 문서·지식 응답. 온보딩 스킬이 고른다 |
 
-## 과제 시작 시 적용 (5분)
+## 과제 시작 시 적용 (2분)
 
 ```bash
 cd /tmp
 git clone https://github.com/asxein/ops-workbench.git kit
-cd ~
-cd <작업 폴더>
-mkdir -p docs/plan docs/handoff
-cp /tmp/kit/AGENTS.md ./AGENTS.md
-cp /tmp/kit/templates/PLAN.md docs/plan/PRD.md && cp /tmp/kit/templates/UICHECK.md docs/plan/
-cp /tmp/kit/templates/NOTES.md /tmp/kit/templates/HANDOFF.md docs/handoff/
-cp /tmp/kit/templates/CHECKLIST.md ./CHECKLIST.md
-# 모듈은 PRD 스택 결정표에서 승인된 것만 복사 (예: A 유형)
-mkdir -p src public test && cp /tmp/kit/modules/server-std/server.mjs /tmp/kit/modules/csv-std/csv.mjs /tmp/kit/modules/ingest-std/ingest.mjs /tmp/kit/modules/repo-memory/repo.mjs src/ && cp /tmp/kit/modules/ui-table/index.html public/ && cp /tmp/kit/modules/csv-std/csv.test.mjs /tmp/kit/modules/repo-memory/repo.test.mjs test/
-# 복사 후 import 경로를 ./ 로 정리한다
-# 스킬 인식 경로는 환경 안내를 따른다
-mkdir -p .agents/skills && cp -r /tmp/kit/skills/* .agents/skills/
-node /tmp/kit/tools/preflight.mjs .      # 결과 한 줄을 docs/handoff/NOTES.md 런타임 줄에
-git add -A && git commit -m "chore: add working rules, doc templates, scaffold (from public ops-workbench)"
+cd ~                      # 작업 폴더
+bash /tmp/kit/tools/setup.sh
+codex
 ```
+
+`setup.sh`는 .gitignore(잡파일 제외)와 첫 커밋, docs/plan·docs/handoff와 템플릿, 스킬 복사, preflight 점검을 한 번에 한다. 기존 파일은 덮어쓰지 않는다. README가 문서 파일명을 지정하면 그 이름으로 옮긴 뒤 커밋한다. 모듈은 PRD 스택 결정표에서 승인된 것만 `modules/`에서 복사한다.
 
 README가 제출 문서 파일명을 지정하면 그 이름으로 복사한다. 출처(이 저장소 URL)는 NOTES.md 첫 줄에 적는다.
 
