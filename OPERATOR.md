@@ -13,13 +13,13 @@
 
 | 내가 치는 것 | 내가 읽는 것 | 내가 정하는 것 |
 |---|---|---|
-| M탭: `cd ~ && git clone https://github.com/asxein/ops-workbench.git kit`, `node ~/kit/tools/preflight.mjs .` (결과 한 줄을 NOTES 런타임 줄로, 주의 항목은 바로 처리) | README **두 번** (제출물 파일명, 필수조건, 없는 것) | 1차 질문 3~4개(내 말, 번호, 한 메시지) → 담당자 DM 발사 |
+| M탭: `cd /tmp && git clone https://github.com/asxein/ops-workbench.git kit && cd ~`, `node /tmp/kit/tools/preflight.mjs .` (결과 한 줄을 NOTES 런타임 줄로, 주의 항목은 바로 처리) | README **두 번** (제출물 파일명, 필수조건, 없는 것) | 1차 질문 3~4개(내 말, 번호, 한 메시지) → 담당자 DM 발사 |
 
 ## 3~5분 · 키트 적용, 세션 3개
 
 | 내가 치는 것 | 내가 읽는 것 | 내가 정하는 것 |
 |---|---|---|
-| M탭: README의 "과제 시작 시 적용" 블록 그대로(`mkdir -p docs/plan docs/handoff`, cp…, `git add -A && git commit -m "chore: …"`) | 복사된 파일 목록 | README가 문서 파일명을 지정했으면 그 이름으로 복사 |
+| M탭: `cat /tmp/kit/QUICKSTART.md` → 0번(.gitignore + 첫 커밋)부터 복붙. 작업 폴더가 홈(~)이면 잡파일이 많으니 0번을 빼먹지 않는다 | `git log --oneline`에 첫 커밋 | README가 문서 파일명을 지정했으면 그 이름으로 복사 |
 | M탭: 루트에서 `codex` / P탭: `cd docs/plan && codex` / D탭: `cd docs/handoff && codex` | 각 탭 `/status`: 모델·설정 확인. 모델은 `/model`로 Sol 6.1(D는 Luna 선택 가능). 권한은 **M = Auto + `/fast`(켠 뒤 `/status`에서 모델명 그대로인지 확인), P→V = Auto, D = Auto. Full access(YOLO)는 쓰지 않는다** | 설정 플래그는 쓰지 않는다 |
 
 ## 5~8분 · 온보딩 (P탭)
@@ -55,7 +55,7 @@
 |---|---|---|
 | M탭: M1 복붙(@docs/plan/PRD.md) | 승인 요청이 뜨면 **즉시** 읽고 승인/거절 | — |
 | 기다리는 동안: Browser 탭에 PORT 입력 준비, 90분 중간 확인 문구 작성 | — | — |
-| 완료 보고가 오면 `node ~/kit/tools/gate.mjs --since prd-v1 --url … --expect …` (**검증 3종을 스크립트로**: diff·테스트·수용 조건) + "어느 파일 어느 함수" 한 줄 질문 | diff 목록에 핵심 파일이 있나, 출력에 수용 조건이 보이나 | 사실이면 `git add -A && git commit -m "feat: e2e v0" && git tag v0`. 아니면 "미완료, 원인부터" |
+| 완료 보고가 오면 `node /tmp/kit/tools/gate.mjs --since prd-v1 --url … --expect …` (**검증 3종을 스크립트로**: diff·테스트·수용 조건) + "어느 파일 어느 함수" 한 줄 질문 | diff 목록에 핵심 파일이 있나, 출력에 수용 조건이 보이나 | 사실이면 `git add -A && git commit -m "feat: e2e v0" && git tag v0`. 아니면 "미완료, 원인부터" |
 | **수동 UI 카드 A1~A5** (templates/UICHECK.md, 5분): 첫 화면·필터·기본 정렬·내려받기·경계값을 내 손으로 | 표의 기대 vs 실제 | 실패 줄은 M3 목록 맨 위로. 표는 REVIEW.md에 붙인다 |
 
 ## 65~70분 · 첫 검증
@@ -106,6 +106,7 @@
 
 | 상황 | 행동 |
 |---|---|
+| Codex 시작·재시작 때 업데이트 안내가 뜬다 | **건너뛴다.** 업데이트는 규정 위반이고 실제로 오류가 난다 |
 | 승인 대기가 보인다 | 다른 일보다 먼저 처리. 방치하면 멈춘다 |
 | `/model`에 Sol 6.1이 없다 | 환경 도우미에게 선택 방법을 묻는다. 목록에 있는 권장 모델로 진행 |
 | 세션이 죽었다 | 같은 탭에서 `codex resume --last` |

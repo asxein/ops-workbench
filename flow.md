@@ -33,7 +33,7 @@
 에이전트는 curl·단위 테스트까지다. 브라우저 화면, 실제 데이터 투입, 내려받은 파일 열기는 **내가 한다**. `templates/UICHECK.md` 표를 65분(A1~A5)·기능마다(해당 줄)·120분(전체)·158분(HANDOFF 실행 명령으로)에 채워 REVIEW.md에 붙인다. 미확인은 통과가 아니다.
 
 
-0. 한 번에: `node ~/kit/tools/gate.mjs --since <직전태그> --url <수용 조건 URL> --expect <기대 문자열>`. exit 0이어야 커밋. 아래 1~3은 게이트가 하는 일과 같다(게이트를 못 쓰면 손으로).
+0. 한 번에: `node /tmp/kit/tools/gate.mjs --since <직전태그> --url <수용 조건 URL> --expect <기대 문자열>`. exit 0이어야 커밋. 아래 1~3은 게이트가 하는 일과 같다(게이트를 못 쓰면 손으로).
 1. `git diff --stat v0..HEAD` (직전 태그 기준) → 기능 파일이 목록에 있는가. 없으면 구현 안 된 것.
 2. 수용 조건을 명령 하나로: `curl "localhost:3000/api/…"` 또는 Browser 탭 클릭. 보고가 아니라 출력을 본다.
 3. "어느 파일 어느 함수에 있나" 한 줄 질문. 답이 흐리면 없는 것.
@@ -66,7 +66,7 @@
 
 ```
 역할: 계획 담당. docs/plan/RUNPLAN.md 한 파일만 만든다.
-입력: ../README.md, 작업 폴더 구성(../data, ../src, ../test 유무와 형식, 각 파일 첫 20줄), 플레이북 ../../playbooks/*.md (키트를 clone한 경우 ~/kit/playbooks)
+입력: ../README.md, 작업 폴더 구성(../data, ../src, ../test 유무와 형식, 각 파일 첫 20줄), 플레이북 ../../playbooks/*.md (키트를 clone한 경우 /tmp/kit/playbooks)
 출력: 과제 유형(A 데이터→화면/리포트, B 기존 코드 수정, C 문서·지식 응답, D 그 외)과 근거 2줄, 해당 플레이북의 RUNPLAN 틀을 채운 docs/plan/RUNPLAN.md
 규칙: 3분. 해법·스택·점수 규칙을 정하지 않는다. README에 답이 있는 질문은 넣지 않는다.
 완료 보고: 유형·근거, RUNPLAN 경로, 내가 지금 결정할 것 3개 이내.

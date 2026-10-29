@@ -24,19 +24,19 @@
 ## 과제 시작 시 적용 (5분)
 
 ```bash
-cd ~ && git clone https://github.com/asxein/ops-workbench.git kit
+cd /tmp && git clone https://github.com/asxein/ops-workbench.git kit && cd ~
 cd <작업 폴더>
 mkdir -p docs/plan docs/handoff
-cp ~/kit/AGENTS.md ./AGENTS.md
-cp ~/kit/templates/PLAN.md docs/plan/PRD.md && cp ~/kit/templates/UICHECK.md docs/plan/
-cp ~/kit/templates/NOTES.md ~/kit/templates/HANDOFF.md docs/handoff/
-cp ~/kit/templates/CHECKLIST.md ./CHECKLIST.md
+cp /tmp/kit/AGENTS.md ./AGENTS.md
+cp /tmp/kit/templates/PLAN.md docs/plan/PRD.md && cp /tmp/kit/templates/UICHECK.md docs/plan/
+cp /tmp/kit/templates/NOTES.md /tmp/kit/templates/HANDOFF.md docs/handoff/
+cp /tmp/kit/templates/CHECKLIST.md ./CHECKLIST.md
 # 모듈은 PRD 스택 결정표에서 승인된 것만 복사 (예: A 유형)
-mkdir -p src public test && cp ~/kit/modules/server-std/server.mjs ~/kit/modules/csv-std/csv.mjs ~/kit/modules/ingest-std/ingest.mjs ~/kit/modules/repo-memory/repo.mjs src/ && cp ~/kit/modules/ui-table/index.html public/ && cp ~/kit/modules/csv-std/csv.test.mjs ~/kit/modules/repo-memory/repo.test.mjs test/
+mkdir -p src public test && cp /tmp/kit/modules/server-std/server.mjs /tmp/kit/modules/csv-std/csv.mjs /tmp/kit/modules/ingest-std/ingest.mjs /tmp/kit/modules/repo-memory/repo.mjs src/ && cp /tmp/kit/modules/ui-table/index.html public/ && cp /tmp/kit/modules/csv-std/csv.test.mjs /tmp/kit/modules/repo-memory/repo.test.mjs test/
 # 복사 후 import 경로를 ./ 로 정리한다
 # 스킬 인식 경로는 환경 안내를 따른다
-mkdir -p .agents/skills && cp -r ~/kit/skills/* .agents/skills/
-node ~/kit/tools/preflight.mjs .      # 결과 한 줄을 docs/handoff/NOTES.md 런타임 줄에
+mkdir -p .agents/skills && cp -r /tmp/kit/skills/* .agents/skills/
+node /tmp/kit/tools/preflight.mjs .      # 결과 한 줄을 docs/handoff/NOTES.md 런타임 줄에
 git add -A && git commit -m "chore: add working rules, doc templates, scaffold (from public ops-workbench)"
 ```
 
@@ -64,7 +64,7 @@ cd docs/handoff && codex           # D 문서·핸드오프 (docs/handoff 아래
 ## 완료 보고 검증 (매 기능마다)
 
 ```bash
-node ~/kit/tools/gate.mjs --since v0 --url "http://localhost:3000/api/rows?size=5" --expect "기대 문자열"
+node /tmp/kit/tools/gate.mjs --since v0 --url "http://localhost:3000/api/rows?size=5" --expect "기대 문자열"
 # exit 0 커밋 가능 / 1 실패 → 원인부터 / 2 검증한 게 없음
 ```
 

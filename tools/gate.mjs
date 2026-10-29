@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // 완료 보고 검증 게이트. "검증한 게 없으면 통과가 아니다"를 exit 코드로 강제한다.
-// 사용: node ~/kit/tools/gate.mjs --since v0 [--test "npm test"] [--url http://localhost:3000/api/rows] [--expect "문자열"] [--must src/]
+// 사용: node /tmp/kit/tools/gate.mjs --since v0 [--test "npm test"] [--url http://localhost:3000/api/rows] [--expect "문자열"] [--must src/]
 //   exit 0 = 모든 항목 통과 / 1 = 실패 항목 있음 / 2 = 검증한 항목이 하나도 없음(게이트 미실행과 구분)
 import { execSync } from 'node:child_process';
 

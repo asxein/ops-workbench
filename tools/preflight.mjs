@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // 시작 3분 환경 점검. 외부 의존성 없음. 설정을 바꾸지 않고 읽기만 한다.
-// 사용: node ~/kit/tools/preflight.mjs [작업폴더]   → 요약 한 줄을 NOTES "런타임" 줄에 붙인다.
+// 사용: node /tmp/kit/tools/preflight.mjs [작업폴더]   → 요약 한 줄을 NOTES "런타임" 줄에 붙인다.
 import { execSync } from 'node:child_process';
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { createServer } from 'node:net';
