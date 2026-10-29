@@ -1,0 +1,13 @@
+{
+  "name": "probe-kit",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test \"modules/**/*.test.mjs\"",
+    "start": "node modules/server-std/server.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

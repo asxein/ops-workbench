@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>결과 화면</title>
+<style>
+body{font-family:sans-serif;margin:20px}
+table{border-collapse:collapse;font-size:13px}
+td,th{border:1px solid #ccc;padding:4px 8px;text-align:left}
+input{padding:6px;width:260px}
+.bar{display:flex;gap:10px;align-items:center;margin-bottom:12px}
+</style>
+</head>
+<body>
+<h1>결과 화면</h1>
+<div class="bar"><input id="q" placeholder="필터 (아무 열이나 포함 검색)"><span id="count"></span><a href="/api/rows.csv">CSV 내려받기</a></div>
+<table><thead id="head"></thead><tbody id="body"></tbody></table>
+<script>
+let t;
+async function load() {
+  const q = document.getElementById('q').value;
+  const r = await fetch('/api/rows?q=' + encodeURIComponent(q));
+  const b = await r.json();
+  document.getElementById('count').textContent = b.total + '건';
+  const cols = b.rows[0] ? Object.keys(b.rows[0]) : [];
+  document.getElementById('head').innerHTML = '<tr>' + cols.map((c) => '<th>' + c + '</th>').join('') + '</tr>';
+  document.getElementById('body').innerHTML = b.rows.map((x) => '<tr>' + cols.map((c) => '<td>' + String(x[c] ?? '') + '</td>').join('') + '</tr>').join('');
+}
+document.getElementById('q').addEventListener('input', () => { clearTimeout(t); t = setTimeout(load, 200); });
+load();
+</script>
+</body>
+</html>
