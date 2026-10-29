@@ -1,6 +1,6 @@
 # NOTES — 의사결정 로그
 
-런타임: (node --version / python3 --version 결과, 지원 상태) · 키트 출처: https://github.com/asxein/probe-kit
+런타임: (node --version / python3 --version 결과, 지원 상태) · 키트 출처: https://github.com/asxein/ops-workbench
 
 ## 요구사항 확인 (담당자 Q→A, 10~13분에 작성. P1·D 세션이 @로 읽음)
 | # | 내 질문 | 담당자 답변(요약) | 처리 |

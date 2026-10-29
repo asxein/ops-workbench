@@ -1,9 +1,9 @@
 ---
-name: probe-frame
+name: task-frame
 description: 과제 README와 데이터를 읽고 제출물 체크리스트, 담당자 추가 질문 후보, 접근안 2개, 45분 v0 범위를 보고한다. 파일은 수정하지 않는다.
 ---
 
-# probe-frame
+# task-frame
 
 사용 시점: 과제 시작 3~8분, 계획 세션(docs/plan)에서. 사용자가 이미 보낸 1차 질문을 입력으로 받는다.
 

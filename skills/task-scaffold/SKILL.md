@@ -1,9 +1,9 @@
 ---
-name: probe-scaffold
+name: task-scaffold
 description: PRD 스택 결정표에서 사용자가 승인한 모듈만 modules/에서 복사해 src·public·test 뼈대를 만들고, 문서 뼈대(docs/plan, docs/handoff)를 둔다. 승인되지 않은 모듈은 가져오지 않는다. 과제 로직은 넣지 않는다.
 ---
 
-# probe-scaffold
+# task-scaffold
 
 사용 시점: 과제 시작 0~10분, 구현 세션(루트)에서. PRD 확정 전에는 `src/`에 과제 로직을 넣지 않는다.
 

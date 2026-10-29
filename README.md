@@ -1,6 +1,6 @@
-# probe-kit
+# ops-workbench
 
-Cofa-Probe 형식 과제(제한 시간 안에 README 기반 업무 과제를 코딩 에이전트와 함께 구현)를 위한 **작업 규칙·프롬프트·문서 템플릿·표준 모듈 뼈대**. 과제 해답은 들어 있지 않다. 모든 내용은 제작자가 리허설(2026-10-27~29)에서 직접 작성했다.
+제한 시간 과제(제한 시간 안에 README 기반 업무 과제를 코딩 에이전트와 함께 구현)를 위한 **작업 규칙·프롬프트·문서 템플릿·표준 모듈 뼈대**. 과제 해답은 들어 있지 않다. 모든 내용은 제작자가 리허설(2026-10-27~29)에서 직접 작성했다.
 
 ## 구성
 
@@ -15,13 +15,13 @@ Cofa-Probe 형식 과제(제한 시간 안에 README 기반 업무 과제를 코
 | `security.md` | 보안·런타임 기준선: 시작 3분 버전 기록, 지원 중/EOL 표, 코드 수준 기본 다섯 줄, HANDOFF 보안 섹션 틀 |
 | `catalog.md` | **스택 카탈로그**: 계층별 자체 모듈 후보(외부 패키지·타인 저장소 없음), 근거·위험, 결정 표 작성 규칙(승인/변경/컷) |
 | `modules/` | 조합 가능한 자체 모듈 8종(설치 없음, 모듈별 테스트): server-std, csv-std, ingest-std, repo-memory, repo-sqlite, search-keyword, report-md, ui-table |
-| `skills/` | Codex 스킬 3종: `probe-onboard`(과제 유형 판별 → RUNPLAN), `probe-frame`(조사·질문·접근안), `probe-scaffold`(뼈대 생성) |
+| `skills/` | Codex 스킬 3종: `task-onboard`(과제 유형 판별 → RUNPLAN), `task-frame`(조사·질문·접근안), `task-scaffold`(뼈대 생성) |
 | `playbooks/` | 유형별 실행 각본(playbook): A 데이터→화면/리포트, B 기존 코드 수정, C 문서·지식 응답. 온보딩 스킬이 고른다 |
 
 ## 과제 시작 시 적용 (5분)
 
 ```bash
-cd ~ && git clone https://github.com/asxein/probe-kit.git kit
+cd ~ && git clone https://github.com/asxein/ops-workbench.git kit
 cd <작업 폴더>
 mkdir -p docs/plan docs/handoff
 cp ~/kit/AGENTS.md ./AGENTS.md
@@ -33,7 +33,7 @@ mkdir -p src public test && cp ~/kit/modules/server-std/server.mjs ~/kit/modules
 # 복사 후 import 경로를 ./ 로 정리한다
 # 스킬 인식 경로는 환경 안내를 따른다
 mkdir -p .agents/skills && cp -r ~/kit/skills/* .agents/skills/
-git add -A && git commit -m "chore: add working rules, doc templates, scaffold (from public probe-kit)"
+git add -A && git commit -m "chore: add working rules, doc templates, scaffold (from public ops-workbench)"
 ```
 
 README가 제출 문서 파일명을 지정하면 그 이름으로 복사한다. 출처(이 저장소 URL)는 NOTES.md 첫 줄에 적는다.
@@ -41,9 +41,9 @@ README가 제출 문서 파일명을 지정하면 그 이름으로 복사한다.
 ## 온보딩 흐름 (0~8분)
 
 1. 사용자가 README를 두 번 읽고 담당자에게 1차 질문 3~4개를 보낸다(내 말로).
-2. 계획 세션에서 `probe-onboard` → 유형 판별, `docs/plan/RUNPLAN.md` 생성 (3분).
-3. 사용자가 RUNPLAN의 "결정할 것 3개"를 정한다. 그 다음 `probe-frame`(추가 질문·접근안) → PRD(P2).
-4. 구현 세션에서 `probe-scaffold`(유형 A·C만; B는 기존 코드 그대로).
+2. 계획 세션에서 `task-onboard` → 유형 판별, `docs/plan/RUNPLAN.md` 생성 (3분).
+3. 사용자가 RUNPLAN의 "결정할 것 3개"를 정한다. 그 다음 `task-frame`(추가 질문·접근안) → PRD(P2).
+4. 구현 세션에서 `task-scaffold`(유형 A·C만; B는 기존 코드 그대로).
 
 각본은 해법이 아니라 **순서·v0 정의·검증 포인트·함정 목록**이다. 과제별 규칙·점수·스택은 PRD에서 사용자가 정한다.
 

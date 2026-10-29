@@ -61,7 +61,7 @@
 
 ## P 세션
 
-### P0. 온보딩 (3~6분, 스킬 `probe-onboard` 또는 아래 프롬프트)
+### P0. 온보딩 (3~6분, 스킬 `task-onboard` 또는 아래 프롬프트)
 
 ```
 역할: 계획 담당. docs/plan/RUNPLAN.md 한 파일만 만든다.

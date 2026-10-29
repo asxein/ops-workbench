@@ -1,9 +1,9 @@
 ---
-name: probe-onboard
+name: task-onboard
 description: 과제 README·데이터·기존 코드를 3분 안에 훑어 과제 유형(데이터→화면/리포트, 기존 코드 수정, 문서·지식 응답, 그 외)을 판별하고, 해당 플레이북을 골라 "이번 과제 실행 계획" 한 장을 docs/plan/RUNPLAN.md 로 만든다. 해법은 정하지 않는다.
 ---
 
-# probe-onboard
+# task-onboard
 
 사용 시점: 과제 시작 0~5분, 계획 세션(docs/plan)에서. 사용자가 README를 두 번 읽고 1차 질문을 보낸 뒤 실행한다.
 
