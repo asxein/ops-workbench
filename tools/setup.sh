@@ -5,6 +5,13 @@
 set -u
 KIT="${KIT:-/tmp/kit}"
 W="$(pwd)"
+
+# 작업 폴더 가드: 과제 폴더에는 README.md가 있고, 임시 폴더(/tmp 등)에서는 절대 돌리지 않는다
+case "$W" in /tmp|/tmp/*|/var/tmp*|*/AppData/Local/Temp*|*/Temp|*/Temp/*) echo "중단: 임시 폴더($W)에서는 실행하지 않는다. 작업 폴더로 cd 한 뒤 다시."; exit 1;; esac
+if [ ! -f README.md ] && [ "${FORCE:-0}" != "1" ]; then echo "중단: 여기($W)에 README.md가 없다. 과제 폴더가 맞으면 cd 한 뒤 다시, 정말 여기면 FORCE=1 bash $0"; exit 1; fi
+UNTRACKED=$(ls -A1 2>/dev/null | wc -l)
+if [ "$UNTRACKED" -gt 60 ] && [ "${FORCE:-0}" != "1" ]; then echo "중단: 항목이 $UNTRACKED 개나 된다. 과제 폴더가 맞는지 확인 후 FORCE=1 로 다시."; exit 1; fi
+
 echo "작업폴더=$W / 키트=$KIT"
 
 # 0) 잡파일 제외 + 첫 커밋 (저장소가 없으면 init)

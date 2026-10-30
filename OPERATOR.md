@@ -13,7 +13,7 @@
 
 | 내가 치는 것 | 내가 읽는 것 | 내가 정하는 것 |
 |---|---|---|
-| M탭(작업 폴더에서): `rm -rf /tmp/kit; git clone https://github.com/asxein/ops-workbench.git /tmp/kit` → `bash /tmp/kit/tools/setup.sh` | 출력의 스킬 3개 줄, preflight 줄 | 이상 없으면 다음 줄로 |
+| M탭: `cd ~`(작업 폴더) → `rm -rf /tmp/kit; git clone https://github.com/asxein/ops-workbench.git /tmp/kit` → `bash /tmp/kit/tools/setup.sh` | 출력의 스킬 3개 줄, preflight 줄 | 이상 없으면 다음 줄로 |
 | P탭: `cd ~/docs/plan && codex` → `/status`(묻는 수준이면 `/permissions` Auto) → **`$task-onboard` 바로** (스킬이 안 뜨면 flow.md의 P0 프롬프트 복붙) | (도는 동안) README **두 번**: 제출물 파일명, 필수조건, 없는 것 | |
 
 ## 2~5분 · 1차 질문, 나머지 세션

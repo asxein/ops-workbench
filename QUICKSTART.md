@@ -3,10 +3,12 @@
 키트는 **작업 폴더 밖(/tmp/kit)** 에 둔다. 작업 폴더가 홈(~)이고 그 자체가 git 저장소인 환경이 있어서, 안에 두면 제출물 diff에 섞인다.
 
 ```bash
-# -1) 시작 3줄 (작업 폴더에서 그대로. 키트는 /tmp/kit에 받고 홈은 떠나지 않는다). 2번째 줄이 아래 0~3번을 전부 대신한다
+# -1) 시작 4줄. 첫 줄은 작업 폴더로 이동(시험은 홈 = ~). 3번째 줄이 아래 0~3번을 전부 대신한다
+cd ~
 rm -rf /tmp/kit; git clone https://github.com/asxein/ops-workbench.git /tmp/kit
 bash /tmp/kit/tools/setup.sh
 codex
+# setup.sh는 README.md가 없는 폴더·임시 폴더(/tmp 등)에서는 스스로 멈춘다
 
 # /tmp 에 못 쓰면 (드문 경우): 홈 아래 숨김 폴더로. setup.sh 가 .kit/ 을 git에서 제외한다
 #   git clone https://github.com/asxein/ops-workbench.git ~/.kit && KIT=~/.kit bash ~/.kit/tools/setup.sh
