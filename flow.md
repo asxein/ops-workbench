@@ -44,7 +44,7 @@
 
 | 분 | 나 | P / V | M | D |
 |---|---|---|---|---|
-| 0~2 | M탭: 시작 4줄(clone → setup.sh). P탭 켜고 `/status` → `$task-onboard`. 도는 동안 README 2회 | **`$task-onboard`** → RUNPLAN | | |
+| 0~2 | M탭: 시작 2줄(clone → setup.sh). P탭 켜고 `/status` → `$task-onboard`. 도는 동안 README 2회 | **`$task-onboard`** → RUNPLAN | | |
 | 2~5 | **1차 질문 DM**(내 생각 + 온보딩 후보를 내 말로). M탭 `codex`, D탭 켜기 | 온보딩 보고 | (켜기만) | (켜기만) |
 | 5~10 | 온보딩 결정 3개에 답(스택), P1 후보에서 골라 **2차 질문 DM** | **`$task-frame`**(P1) 추가 질문·v0 범위 | | |
 | 10~13 | 답변 → NOTES 요구사항 표, 접근안 결정 | | | **D1** 시작 |
