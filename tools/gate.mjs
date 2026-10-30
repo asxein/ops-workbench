@@ -33,7 +33,10 @@ if (!url) {
 if (since === 'HEAD') console.log('참고: --since HEAD 는 미커밋 변경만 본다. 단계 검증은 직전 태그(prd-v1, v0 …)를 넣는다. 태그가 없으면 사용자가 T탭에서 git tag 먼저.');
 
 // 1) diff: 직전 태그 이후(미커밋 포함) 기능 파일이 바뀌었는가
-if (since) {
+const sinceIsHead = since && sh(`git rev-parse ${since}`).out.trim() === sh('git rev-parse HEAD').out.trim();
+if (since && sinceIsHead && !uncommitted.length) {
+  console.log(`참고: ${since} 가 지금 HEAD와 같고 미커밋 변경도 없다 → 방금 찍은 태그 자체를 검증하는 중. diff 항목은 생략(다음 단계부터 --since ${since}).`);
+} else if (since) {
   const touched = changed.filter((f) => f.startsWith(must));
   results.push({ name: `${since} 이후 ${must} 변경(미커밋 포함)`, ok: touched.length > 0, detail: touched.length ? touched.slice(0, 8).join(', ') + (touched.length > 8 ? ` 외 ${touched.length - 8}` : '') : `변경 파일 ${changed.length}개 중 ${must} 없음 → 구현이 반영되지 않았을 수 있음` });
 }
