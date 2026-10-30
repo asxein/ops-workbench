@@ -19,7 +19,7 @@
 | `tools/gate.mjs` | 완료 보고 검증 게이트: 직전 태그 이후 src 변경 여부 + 테스트 실제 실행 + 수용 조건 URL 확인. 검증 항목 0개면 exit 2 |
 | `catalog.md` | **스택 카탈로그**: 계층별 자체 모듈 후보(외부 패키지·타인 저장소 없음), 근거·위험, 결정 표 작성 규칙(승인/변경/컷) |
 | `modules/` | 조합 가능한 자체 모듈 8종(설치 없음, 모듈별 테스트): server-std, csv-std, ingest-std, repo-memory, repo-sqlite, search-keyword, report-md, ui-table |
-| `skills/` | Codex 스킬 3종: `task-onboard`(과제 유형 판별 → RUNPLAN), `task-frame`(조사·질문·접근안), `task-scaffold`(뼈대 생성) |
+| `skills/` | Codex 스킬 5종: `task-onboard`(과제 유형 판별 → RUNPLAN), `task-frame`(조사·질문·접근안), `task-scaffold`(뼈대 생성), `task-verify`(계획 세션을 검증 담당으로 전환, "리뷰해 <태그>"로 리뷰), `task-handoff`(문서 세션: HANDOFF 뼈대 → "결정:" 반영 → "컴파일") |
 | `playbooks/` | 유형별 실행 각본(playbook): A 데이터→화면/리포트, B 기존 코드 수정, C 문서·지식 응답. 온보딩 스킬이 고른다 |
 
 ## 과제 시작 시 적용 (2분)

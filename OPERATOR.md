@@ -48,8 +48,8 @@
 |---|---|---|
 | P탭: P2(PRD 1쪽, 스택 고정 문구 포함) | PRD 전체. 특히 2장 성공 기준(숫자), 3장 v0 범위, 5장 스택 결정표 | 고칠 곳은 내가 에디터에서 직접 고친다 |
 | M탭 터미널: `git add -A && git commit -m "docs: prd v1" && git tag prd-v1` | — | — |
-| P탭: P3("지금부터 검증 담당") | 수용기준 체크리스트(REVIEW.md) | — |
-| D탭: D1(HANDOFF 뼈대) | — | — |
+| P탭: **`$task-verify`** (안 뜨면 flow.md P3 복붙) | 수용기준 체크리스트(REVIEW.md) | — |
+| D탭: `cd ~/docs/handoff && codex` → **`$task-handoff`** (안 뜨면 prompts.md D1 복붙) | — | — |
 
 ## 20~65분 · E2E v0 (M탭)
 
@@ -64,7 +64,7 @@
 
 | 내가 치는 것 | 내가 읽는 것 | 내가 정하는 것 |
 |---|---|---|
-| P(V)탭: V1("태그 v0 기준 수용기준 대조, 테스트 실행, REVIEW.md") | REVIEW의 미충족 번호 목록 | 지금 고칠 번호만 골라 M2로 |
+| P(V)탭: **`리뷰해 v0`** (task-verify 리뷰 모드. 안 되면 flow.md V1 복붙) | REVIEW의 미충족 번호 목록 | 지금 고칠 번호만 골라 M2로 |
 
 ## 70~120분 · 기능 루프 ×3
 
