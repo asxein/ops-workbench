@@ -9,7 +9,7 @@ echo "작업폴더=$W / 키트=$KIT"
 
 # 0) 잡파일 제외 + 첫 커밋 (저장소가 없으면 init)
 if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then git init -q; echo "git init"; fi
-for p in .npm/ .codex/ .literacy/ .cache/ .bash_logout .bashrc .profile .sudo_as_admin_successful kit/ node_modules/; do
+for p in .npm/ .codex/ .literacy/ .cache/ .kit/ .bash_logout .bashrc .profile .sudo_as_admin_successful kit/ node_modules/; do
   grep -qxF "$p" .gitignore 2>/dev/null || echo "$p" >> .gitignore
 done
 if ! git rev-parse HEAD >/dev/null 2>&1; then

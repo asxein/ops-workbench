@@ -10,6 +10,9 @@ cd ~
 bash /tmp/kit/tools/setup.sh
 codex
 
+# /tmp 에 못 쓰면 (드문 경우): 홈 아래 숨김 폴더로. setup.sh 가 .kit/ 을 git에서 제외한다
+#   git clone https://github.com/asxein/ops-workbench.git ~/.kit && KIT=~/.kit bash ~/.kit/tools/setup.sh
+
 # ---- 아래는 setup.sh가 하는 일(수동으로 할 때만) ----
 
 # 0) 첫 커밋 전 잡파일 제외 (작업 폴더가 ~ 이고 "No commits yet" 일 때)
