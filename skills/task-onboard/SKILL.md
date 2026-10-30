@@ -15,9 +15,9 @@ description: 과제 README·데이터·기존 코드를 3분 안에 훑어 과�
 
 | 유형 | 신호 | 플레이북 |
 |---|---|---|
-| A 데이터→화면/리포트 | data/에 표 데이터, "화면·대시보드·요약·리포트·CSV" 요구 | `playbooks/A-data-web.md` |
-| B 기존 코드 수정 | src/·test/가 이미 있고 "버그·기능 추가·회귀" 요구 | `playbooks/B-code-fix.md` |
-| C 문서·지식 응답 | 문서(SOP·가이드·FAQ)가 주어지고 "질문에 답·검색·가이드" 요구 | `playbooks/C-doc-qa.md` |
+| A 데이터→화면/리포트 | data/에 표 데이터, "화면·대시보드·요약·리포트·CSV" 요구 | `/tmp/kit/playbooks/A-data-web.md` |
+| B 기존 코드 수정 | src/·test/가 이미 있고 "버그·기능 추가·회귀" 요구 | `/tmp/kit/playbooks/B-code-fix.md` |
+| C 문서·지식 응답 | 문서(SOP·가이드·FAQ)가 주어지고 "질문에 답·검색·가이드" 요구 | `/tmp/kit/playbooks/C-doc-qa.md` |
 | D 그 외 | 위에 안 맞음 | A 플레이북을 기본으로 쓰고 차이를 RUNPLAN에 적는다 |
 
 4. `/tmp/kit/catalog.md`에서 계층별 후보를 고르고, 각 행에 **근거(왜 이것)·대안과 미선택 이유·설치 필요·위험**을 붙인 스택 후보 표를 만든다. 외부 패키지·타인 저장소는 후보에 넣지 않는다. "사용자 결정" 열은 비워 둔다.
