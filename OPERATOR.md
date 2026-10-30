@@ -4,6 +4,18 @@
 
 용어: 각본(playbook) = 과제 유형별 순서표(파이프라인·v0 정의·검증 포인트·함정). 해법이 아니다.
 
+## 최소선 (이 7개만 지키면 된다. 나머지는 전부 선택)
+
+1. 첫 커밋(setup.sh) · PRD 커밋 · v0 커밋 · 기능마다 커밋 · 최종 커밋. **커밋 없는 작업은 없는 작업.**
+2. 서버가 뜨고 Browser에서 첫 화면이 보인다.
+3. 담당자 답변이 NOTES 요구사항 표에 있고, PRD 수용 조건에 숫자가 있다.
+4. 완료 보고마다 `npm test` 실제 출력 + `git diff --stat` 한 번 눈으로.
+5. HANDOFF.md가 실존하고 실행 방법·핵심 규칙·미완료가 사실이다.
+6. 내가 쓴 코드의 핵심 함수 3개를 "입력→출력→왜"로 말할 수 있다.
+7. 170분 제출.
+
+**뒤처졌을 때 버리는 순서** (65분에 v0 없음 / 100분에 기능 1개 미만 / 140분에 HANDOFF 빈칸): ① D 세션 안 켬(문서는 145분 V가 P6+HANDOFF 함께) ② 태그는 prd-v1·v0·final 3개만 ③ gate는 `--since`만, `--url` 생략하고 curl 1줄 ④ UICHECK는 A1~A3만 ⑤ F1·/export 생략 ⑥ 기능 루프 3→1. **버린 건 NOTES에 한 줄.** 절차는 점수가 아니다. 돌아가는 화면과 판단 근거가 점수다.
+
 ## 시작 전 (09:40~10:00)
 
 - 터미널 탭 5개를 미리 열어 둔다(아직 `codex` 실행 안 함). 탭 이름: P / M / D / S(서버 전용, 65분부터 `PORT=3000 npm start`, 끄기는 여기서만 Ctrl+C) / T(내 손: `git tag`·gate·`git status`). 서버와 Browser 확인은 내가 한다. M이 서버를 켜려 하면 "S에서 내가, curl만".
@@ -13,7 +25,7 @@
 
 | 내가 치는 것 | 내가 읽는 것 | 내가 정하는 것 |
 |---|---|---|
-| M탭: `cd ~`(작업 폴더) → `rm -rf /tmp/kit; git clone https://github.com/asxein/ops-workbench.git /tmp/kit` → `bash /tmp/kit/tools/setup.sh` | 출력의 스킬 3개 줄, preflight 줄 | 이상 없으면 다음 줄로 |
+| M탭: `cd ~`(작업 폴더) → `rm -rf /tmp/kit; git clone https://github.com/asxein/ops-workbench.git /tmp/kit` → `bash /tmp/kit/tools/setup.sh` | 출력의 스킬 5개 줄, preflight 줄, "작업 폴더:" 줄 | 이상 없으면 다음 줄로 |
 | P탭: `cd ~/docs/plan && codex` → `/status`(묻는 수준이면 `/permissions` Auto) → **`$task-onboard` 바로** (스킬이 안 뜨면 flow.md의 P0 프롬프트 복붙) | (도는 동안) README **두 번**: 제출물 파일명, 필수조건, 없는 것 | |
 
 ## 2~5분 · 1차 질문, 나머지 세션

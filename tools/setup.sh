@@ -34,6 +34,10 @@ cp -n "$KIT/templates/NOTES.md"     docs/handoff/NOTES.md   2>/dev/null && echo 
 cp -n "$KIT/templates/HANDOFF.md"   docs/handoff/HANDOFF.md 2>/dev/null && echo "+ docs/handoff/HANDOFF.md"
 cp -n "$KIT/templates/CHECKLIST.md" CHECKLIST.md            2>/dev/null && echo "+ CHECKLIST.md"
 cp -n "$KIT/AGENTS.md"              AGENTS.md               2>/dev/null && echo "+ AGENTS.md"
+# 작업 폴더를 AGENTS 2번째 줄에 박는다. 문서·스킬의 ~/ 는 전부 이 폴더를 뜻한다(홈이 아닐 때 경로 오류 방지)
+if [ -f AGENTS.md ] && ! grep -q "^작업 폴더:" AGENTS.md; then
+  { head -n 1 AGENTS.md; echo; echo "작업 폴더: $W  (이 문서와 .agents/skills 에 적힌 ~/ 는 홈이 아니라 이 폴더를 뜻한다. 읽기·쓰기 경로는 모두 여기 기준)"; tail -n +2 AGENTS.md; } > AGENTS.md.tmp && mv AGENTS.md.tmp AGENTS.md && echo "AGENTS 작업 폴더: $W"
+fi
 
 # 2) 스킬
 mkdir -p .agents/skills && cp -rn "$KIT/skills/." .agents/skills/ && echo "스킬: $(ls .agents/skills | tr '\n' ' ')"
