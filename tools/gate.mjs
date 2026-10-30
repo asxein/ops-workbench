@@ -7,7 +7,9 @@ import { execSync } from 'node:child_process';
 
 const args = process.argv.slice(2);
 const opt = (k, d) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : d; };
-const since = opt('--since');
+const lastTag = () => { try { return execSync('git describe --tags --abbrev=0', { stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim(); } catch { return ''; } };
+let since = opt('--since');
+if (!since || /^<.*>$/.test(since)) { since = lastTag(); console.log(since ? `--since 생략 → 최근 태그 ${since} 기준` : '--since 생략, 태그 없음 → diff 항목 생략'); }
 const testCmd = opt('--test', 'npm test');
 const url = opt('--url');
 const expect = opt('--expect');
