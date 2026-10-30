@@ -47,7 +47,7 @@
 | 0~2 | M탭: 시작 3줄(cd → clone → setup.sh). P탭 켜고 `/status` → `$task-onboard`. 도는 동안 README 2회 | **`$task-onboard`** → RUNPLAN | | |
 | 2~5 | **1차 질문 DM**(내 생각 + 온보딩 후보를 내 말로). M탭 `codex`, D탭 켜기 | 온보딩 보고 | (켜기만) | (켜기만) |
 | 5~10 | 온보딩 결정 3개에 답(스택), P1 후보에서 골라 **2차 질문 DM** | **`$task-frame`**(P1) 추가 질문·v0 범위 | | |
-| 10~13 | 답변 → NOTES 요구사항 표, 접근안 결정 | | | **D1** 시작 |
+| 10~13 | 답변 → NOTES 요구사항 표, 접근안 결정 | | | **`$task-handoff`**(=D1) 시작 |
 | 13~20 | PRD 확정(스택표 승인) → T탭 `git tag prd-v1` | **P2** PRD 작성 | | |
 | 20 | | **`$task-verify`**(=P3) V로 전환 | **`$task-scaffold`** → **M1** E2E v0 | |
 | 20~65 | Browser 직접 확인 | (대기) | **M1** | **D2** 결정마다 |
@@ -193,7 +193,7 @@
 
 ## D 세션
 
-D1(시작) · D2(결정 한 줄) · D3(145분 HANDOFF 컴파일)은 prompts.md의 "D 세션 카드" 그대로. PRD 4~9장은 같은 시각 V가 P6로 채운다(D는 docs/plan에 쓸 수 없다).
+D1(시작) · D2(결정 한 줄) · D3(145분 HANDOFF 컴파일)은 스킬 `$task-handoff`의 시작·반영("결정:")·컴파일("컴파일") 모드와 같다. 스킬이 안 뜨면 prompts.md의 "D 세션 카드" 그대로. PRD 4~9장은 같은 시각 V가 P6로 채운다(D는 docs/plan에 쓸 수 없다).
 
 ---
 
