@@ -20,7 +20,7 @@
 | 세션 | 실행 명령 | 효과 |
 |---|---|---|
 | M 구현 | 작업 폴더 루트에서 `codex` | 전체 쓰기. 유일한 코드 작성자. 0~3분에 `mkdir -p docs/plan docs/handoff` 를 먼저 만든다 |
-| P→V 계획·검증 | `cd docs/plan && codex` | **docs/ 밖은 쓸 수 없다.** PRD는 docs/plan/PRD.md, 검증은 docs/plan/REVIEW.md. **docs/handoff/는 못 쓴다**(형제 폴더). README·data는 `../README.md`, `../data/`로 읽는다(읽기는 어디든 허용). 세션 재시작 불필요: 20분에 P3로 역할만 바꾼다 |
+| P→V 계획·검증 | `cd docs/plan && codex` | **docs/ 밖은 쓸 수 없다.** PRD는 docs/plan/PRD.md, 검증은 docs/plan/REVIEW.md. **docs/handoff/는 못 쓴다**(형제 폴더). README·data는 `~/README.md`, `~/data/`로 읽는다(읽기는 어디든 허용. `../`는 docs/를 가리켜 틀림). 세션 재시작 불필요: 20분에 P3로 역할만 바꾼다 |
 | D 문서 | `cd docs/handoff && codex`, 안에서 `/model`로 Luna 선택(선택 사항) | **docs/handoff/ 밖은 쓸 수 없다.** HANDOFF.md·NOTES.md를 여기서 관리. PRD는 `../plan/PRD.md`로 읽는다. README가 루트 NOTES.md를 요구하면 제출 직전 M이 복사 |
 
 - 제공 환경의 Codex 기본 설정(승인 정책·샌드박스)을 그대로 쓴다. 바꾸지 않는다. 모델은 `/model`, 설정 확인은 `/status`.
@@ -66,7 +66,7 @@
 
 ```
 역할: 계획 담당. docs/plan/RUNPLAN.md 한 파일만 만든다.
-입력: ../README.md, 작업 폴더 구성(../data, ../src, ../test 유무와 형식, 각 파일 첫 20줄), 플레이북 ../../playbooks/*.md (키트를 clone한 경우 /tmp/kit/playbooks)
+입력: ~/README.md, 작업 폴더 구성(~/data, ~/src, ~/test 유무와 형식, 각 파일 첫 20줄), 플레이북 /tmp/kit/playbooks/*.md
 출력: 과제 유형(A 데이터→화면/리포트, B 기존 코드 수정, C 문서·지식 응답, D 그 외)과 근거 2줄, 해당 플레이북의 RUNPLAN 틀을 채운 docs/plan/RUNPLAN.md
 규칙: 3분. 해법·스택·점수 규칙을 정하지 않는다. README에 답이 있는 질문은 넣지 않는다.
 완료 보고: 유형·근거, RUNPLAN 경로, 내가 지금 결정할 것 3개 이내.
