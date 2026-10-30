@@ -9,24 +9,26 @@
 - 터미널 탭 3개를 미리 열어 둔다(아직 `codex` 실행 안 함). 탭 이름: M / P / D.
 - IDE 에디터, Browser 탭, 메신저 위치를 눈으로 확인한다.
 
-## 0~3분 · 읽고 묻기
+## 0~2분 · 키트 적용, P탭 온보딩 시작
 
 | 내가 치는 것 | 내가 읽는 것 | 내가 정하는 것 |
 |---|---|---|
-| M탭: `cd /tmp` → `git clone https://github.com/asxein/ops-workbench.git kit` → `cd ~` | README **두 번** (제출물 파일명, 필수조건, 없는 것) | 1차 질문 3~4개(내 말, 번호, 한 메시지) → 담당자 DM 발사 |
+| M탭: `cd /tmp` → `git clone https://github.com/asxein/ops-workbench.git kit` → `cd ~` → `bash /tmp/kit/tools/setup.sh` | 출력의 스킬 3개 줄, preflight 줄 | 이상 없으면 다음 줄로 |
+| P탭: `cd ~/docs/plan && codex` → `/permissions` Auto → **`$task-onboard` 바로** (스킬이 안 뜨면 flow.md의 P0 프롬프트 복붙) | (도는 동안) README **두 번**: 제출물 파일명, 필수조건, 없는 것 | |
 
-## 3~5분 · 키트 적용, 세션 3개
-
-| 내가 치는 것 | 내가 읽는 것 | 내가 정하는 것 |
-|---|---|---|
-| M탭: `bash /tmp/kit/tools/setup.sh` (gitignore·첫 커밋·docs·템플릿·스킬·preflight 한 번에) | 출력의 preflight 줄과 주의 항목, `git log --oneline`에 첫 커밋 | README가 문서 파일명을 지정했으면 그 이름으로 옮기고 커밋 |
-| M탭: 루트에서 `codex` / P탭: `cd docs/plan && codex` / D탭: `cd docs/handoff && codex` | 각 탭 `/status`: 모델·설정 확인. 모델은 `/model`로 Sol 6.1(D는 Luna 선택 가능). 권한은 **M = Auto + `/fast`(켠 뒤 `/status`에서 모델명 그대로인지 확인), P→V = Auto, D = Auto. Full access(YOLO)는 쓰지 않는다** | 설정 플래그는 쓰지 않는다 |
-
-## 5~8분 · 온보딩 (P탭)
+## 2~5분 · 1차 질문, 나머지 세션
 
 | 내가 치는 것 | 내가 읽는 것 | 내가 정하는 것 |
 |---|---|---|
-| P탭: `$task-onboard` (스킬이 안 뜨면 flow.md의 P0 프롬프트 복붙) | 유형(A/B/C)과 근거, **맞춤 표(그대로/바꿈/버림)**, `docs/plan/RUNPLAN.md` | 맞춤 표의 결정 항목 3개에 답한다. 각본과 과제가 다르면 **과제를 따른다**고 내가 말한다. 유형 판단이 틀렸으면 내가 고친다. 이 2분이 "키트에 매몰되지 않는" 지점이다 |
+| 담당자 DM: 1차 질문 3~4개(번호, 한 메시지) | 온보딩 보고의 1차 질문 후보 | 내가 README에서 떠올린 것 + 후보 중 고른 것을 **내 말로** 고쳐 보낸다. 그대로 붙이지 않는다 |
+| M탭: 루트에서 `codex` / D탭: `cd ~/docs/handoff && codex` (P탭은 0분에 켬) | 각 탭 `/status`: 모델·설정 확인. 모델은 `/model`로 Sol 6.1(D는 Luna 선택 가능). 권한은 **M = Auto + `/fast`(켠 뒤 `/status`에서 모델명 그대로인지 확인), P→V = Auto, D = Auto. Full access(YOLO)는 쓰지 않는다** | 설정 플래그는 쓰지 않는다 |
+| M탭: setup.sh 출력대로 문서 파일명 정리 후 커밋 | `git log --oneline`에 첫 커밋 | README가 문서 파일명을 지정했으면 그 이름으로 |
+
+## 5~8분 · 온보딩 결과 (P탭)
+
+| 내가 치는 것 | 내가 읽는 것 | 내가 정하는 것 |
+|---|---|---|
+| P탭: 온보딩 보고에 답하기 | 유형(A/B/C)과 근거, **맞춤 표(그대로/바꿈/버림)**, `docs/plan/RUNPLAN.md` | 맞춤 표의 결정 항목 3개에 답한다. 각본과 과제가 다르면 **과제를 따른다**고 내가 말한다. 유형 판단이 틀렸으면 내가 고친다. 이 2분이 "키트에 매몰되지 않는" 지점이다 |
 
 ## 8~10분 · 2차 질문
 
@@ -83,7 +85,7 @@
 
 | 내가 치는 것 | 내가 읽는 것 | 내가 정하는 것 |
 |---|---|---|
-| D탭: D3 컴파일 / M탭: 마지막 커밋 / `/export` 로 협업 기록 / `git tag final` | PRD 6~9장, HANDOFF (미정) 칸이 남았나 | 실행 안 한 검증이 "통과"로 적혔으면 지운다 |
+| P탭: P6 PRD 4~9장 / D탭: D3 HANDOFF 컴파일 / M탭: 마지막 커밋 / `/export` 로 협업 기록 / `git tag final` | PRD 6~9장, HANDOFF (미정) 칸이 남았나 | 실행 안 한 검증이 "통과"로 적혔으면 지운다 |
 
 ## 150~158분 · 핸드오프 정합성 검토 (F0)
 
