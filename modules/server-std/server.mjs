@@ -38,5 +38,5 @@ export function createApp({ dataPath = process.env.DATA_PATH ?? 'data/input.csv'
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const port = Number(process.env.PORT ?? 3000);
-  createApp().listen(port, '0.0.0.0', () => console.log(`listening on http://0.0.0.0:${port}`));
+  createApp().listen(port, '0.0.0.0', () => console.log(`listening on http://localhost:${port}  (bind 0.0.0.0)`));
 }
