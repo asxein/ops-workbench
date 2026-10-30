@@ -25,9 +25,8 @@
 ## 과제 시작 시 적용 (2분)
 
 ```bash
-cd /tmp
-git clone https://github.com/asxein/ops-workbench.git kit
-cd ~                      # 작업 폴더
+cd ~                      # 작업 폴더(README.md가 있는 곳)
+rm -rf /tmp/kit; git clone https://github.com/asxein/ops-workbench.git /tmp/kit
 bash /tmp/kit/tools/setup.sh
 codex
 ```
