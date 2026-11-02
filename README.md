@@ -9,8 +9,8 @@
 | `QUICKSTART.md` | clone 직후 환경 안에서 복붙할 명령 줄(위치·버전·점검·폴더·스킬·서버·세션) |
 | `OPERATOR.md` | **운영자 카드: 분 단위로 내가 치는 것·읽는 것·정하는 것** (가장 먼저 읽을 것) |
 | `AGENTS.md` | 코딩 에이전트 작업 규칙 (커밋·검증·문서·금지사항) |
-| `prompts.md` | 세션별 프롬프트 카드 (P1~P3, M0~M4, V1~V3, D1~D3, F1) |
-| `flow.md` | 시간순 세션 운영 플로우 (분 단위, 세션 실행 명령, 완료 보고 검증 3종) |
+| `prompts.md` | 복붙 프롬프트 (P0~P3, M1~M4, V1~V3, P6, D1~D3, F0·F1, P00) |
+| `flow.md` | 시간순 한 장: 탭, 단계별 통과 기준(v0·final), 서술형 재료 |
 | `session-card.md` | 세션 역할·태그 체크포인트·키트 결정 트리 |
 | `templates/` | PLAN(PRD)·NOTES·HANDOFF·CHECKLIST 뼈대 + **UICHECK**(내가 직접 하는 5분 UI·데이터 검증 카드) |
 | `security.md` | 보안·런타임 기준선: 시작 3분 버전 기록, 지원 중/EOL 표, 코드 수준 기본 다섯 줄, HANDOFF 보안 섹션 틀 |

@@ -31,7 +31,7 @@
 | 계층 | 선택 | 근거(왜 이것) | 대안과 미선택 이유 | 설치 필요 | 교체 지점 | 전환 트리거 | 사용자 결정 |
 |---|---|---|---|---|---|---|---|
 | 입력 | 예) CSV 파일 (ingest/csv.mjs) | 제공 데이터 형식 | MES 연동·일배치 | ingest 어댑터 함수 | 수동 적재가 하루 2회 초과 |
-| 저장 | 예) JSON 파일 또는 SQLite (repo.mjs) | 샌드박스에 DB·Docker 없음, 수천 행 | Postgres | repo {list,get,upsert} | 동시 쓰기, 다중 인스턴스, 수십만 행 |
+| 저장 | 예) JSON 파일 또는 SQLite (repo.mjs) | 외부 DB 없이 충분, 수천 행 | Postgres | repo {list,get,upsert} | 동시 쓰기, 다중 인스턴스, 수십만 행 |
 | 서빙 | 예) node:http 단일 프로세스 | 무의존, 180분 | 컨테이너 + compose | server 진입점 | 사용자 10명 이상 |
 | UI | 예) 인라인 HTML | CDN 불가 | 프레임워크 | public/ | 화면 3개 이상 |
 | 운영 | 예) 헬스체크 1개, 콘솔 로그 | 시간 | 메트릭·알림·롤백 | — | 첫 배포 |

@@ -39,6 +39,9 @@ if [ -f AGENTS.md ] && ! grep -q "^작업 폴더:" AGENTS.md; then
   { head -n 1 AGENTS.md; echo; echo "작업 폴더: $W  (이 문서와 .agents/skills 에 적힌 ~/ 는 홈이 아니라 이 폴더를 뜻한다. 읽기·쓰기 경로는 모두 여기 기준)"; tail -n +2 AGENTS.md; } > AGENTS.md.tmp && mv AGENTS.md.tmp AGENTS.md && echo "AGENTS 작업 폴더: $W"
 fi
 
+# 1-1) 참고용 사본: IDE 파일 트리에서 바로 보도록 kit/ 에 (kit/ 는 .gitignore)
+mkdir -p kit && for f in flow.md prompts.md OPERATOR.md; do cp -n "$KIT/$f" "kit/$f" 2>/dev/null; done && echo "참고: kit/flow.md kit/prompts.md kit/OPERATOR.md"
+
 # 2) 스킬
 mkdir -p .agents/skills && cp -rn "$KIT/skills/." .agents/skills/ && echo "스킬: $(ls .agents/skills | tr '\n' ' ')"
 

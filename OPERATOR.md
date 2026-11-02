@@ -25,8 +25,8 @@
 
 | 내가 치는 것 | 내가 읽는 것 | 내가 정하는 것 |
 |---|---|---|
-| M탭: `cd ~`(작업 폴더) → `rm -rf /tmp/kit; git clone https://github.com/asxein/ops-workbench.git /tmp/kit` → `bash /tmp/kit/tools/setup.sh` | 출력의 스킬 5개 줄, preflight 줄, "작업 폴더:" 줄 | 이상 없으면 다음 줄로 |
-| P탭: `cd ~/docs/plan && codex` → `/status`(묻는 수준이면 `/permissions` Auto) → **`$task-onboard` 바로** (스킬이 안 뜨면 flow.md의 P0 프롬프트 복붙) | (도는 동안) README **두 번**: 제출물 파일명, 필수조건, 없는 것 | |
+| M탭: `cd ~`(작업 폴더) → `rm -rf /tmp/kit; git clone https://github.com/asxein/ops-workbench.git /tmp/kit` → `bash /tmp/kit/tools/setup.sh` | 출력의 스킬 5개 줄, preflight 줄, "작업 폴더:" 줄. `docker info` 한 번(데몬 유무를 NOTES 1줄) | 이상 없으면 다음 줄로 |
+| P탭: `cd ~/docs/plan && codex` → `/status`(묻는 수준이면 `/permissions` Auto) → **`$task-onboard` 바로** (스킬이 안 뜨면 prompts.md P0 복붙) | (도는 동안) README **두 번**: 제출물 파일명, 필수조건, 없는 것 | |
 
 ## 2~5분 · 1차 질문, 나머지 세션
 
@@ -60,8 +60,8 @@
 |---|---|---|
 | P탭: P2(PRD 1쪽, 스택 고정 문구 포함) | PRD 전체. 특히 2장 성공 기준(숫자), 3장 v0 범위, 5장 스택 결정표 | 고칠 곳은 내가 에디터에서 직접 고친다 |
 | M탭 터미널: `git add -A && git commit -m "docs: prd v1" && git tag prd-v1` | — | — |
-| P탭: **`$task-verify`** (안 뜨면 flow.md P3 복붙) | 수용기준 체크리스트(REVIEW.md) | — |
-| D탭: `cd ~/docs/handoff && codex` → **`$task-handoff`** (안 뜨면 prompts.md D1 복붙) | — | — |
+| P탭: **`$task-verify`** (안 뜨면 prompts.md P3 복붙) | 수용기준 체크리스트(REVIEW.md) | — |
+| D탭: `cd ~/docs/handoff && codex` → **`$task-handoff`** (안 뜨면 prompts.md D 참고) | — | — |
 
 ## 20~65분 · E2E v0 (M탭)
 
@@ -69,14 +69,14 @@
 |---|---|---|
 | M탭: M1 복붙(~/docs/plan/PRD.md) | 승인 요청이 뜨면 **즉시** 읽고 승인/거절 | — |
 | 기다리는 동안: Browser 탭에 PORT 입력 준비, 90분 중간 확인 문구 작성 | — | — |
-| 완료 보고가 오면(M의 `--since` gate 출력 첨부) **S탭 `PORT=3000 npm start`** → T탭 `node /tmp/kit/tools/gate.mjs --since prd-v1 --url … --expect …` (**검증 3종을 스크립트로**: diff·테스트·수용 조건. `--expect`는 PRD에서) + "어느 파일 어느 함수" 한 줄 질문 | diff 목록에 핵심 파일이 있나, 출력에 수용 조건이 보이나 | 사실이면 `git add -A && git commit -m "feat: e2e v0" && git tag v0`. 아니면 "미완료, 원인부터" |
+| 완료 보고가 오면(M의 `--since` gate 출력 첨부) **S탭 `PORT=3000 npm start`** → T탭 `node /tmp/kit/tools/gate.mjs --since prd-v1 --url … --expect …` (**검증 3종을 스크립트로**: diff·테스트·수용 조건. `--expect`는 PRD에서) + "어느 파일 어느 함수" 한 줄 질문 | diff 목록에 핵심 파일이 있나, 출력에 수용 조건이 보이나 | 사실이면, **제출 형태(Docker 등)가 요구됐을 때** S 끄고 `docker build -t app . && docker run --rm -e PORT=3000 -p 3000:3000 app` → 같은 gate 1회 → `git add -A && git commit -m "feat: e2e v0" && git tag v0`. 아니면 "미완료, 원인부터" (flow.md v0 기준) |
 | **수동 UI 카드 A1~A5** (docs/plan/UICHECK.md, 5분): 첫 화면·필터·기본 정렬·내려받기·경계값을 내 손으로 | 표의 기대 vs 실제 | 실패 줄은 M3 목록 맨 위로. 표는 REVIEW.md에 붙인다 |
 
 ## 65~70분 · 첫 검증
 
 | 내가 치는 것 | 내가 읽는 것 | 내가 정하는 것 |
 |---|---|---|
-| P(V)탭: **`리뷰해 v0`** (task-verify 리뷰 모드. 안 되면 flow.md V1 복붙) | REVIEW의 미충족 번호 목록 | 지금 고칠 번호만 골라 M2로 |
+| P(V)탭: **`리뷰해 v0`** (task-verify 리뷰 모드) | REVIEW의 미충족 번호 목록 | 지금 고칠 번호만 골라 M2로 |
 
 ## 70~120분 · 기능 루프 ×3
 
@@ -99,12 +99,12 @@
 |---|---|---|
 | P탭: P6 PRD 4~9장 / D탭: D3 HANDOFF 컴파일 / M탭: 마지막 커밋 | PRD 6~9장, HANDOFF (미정) 칸이 남았나 | 실행 안 한 검증이 "통과"로 적혔으면 지운다 |
 
-## 150~158분 · 핸드오프 정합성 검토 (F0)
+## 145~158분 · 핸드오프 정합성 검토 (F0, 145분에 시작)
 
 | 내가 치는 것 | 내가 읽는 것 | 내가 정하는 것 |
 |---|---|---|
 | M탭: F0(HANDOFF·PRD 6~9장 vs 실제 코드, 보고만) / 그 뒤 F1(README 대조) | "문서의 주장 | 코드의 실제 | 근거" 표, 문서에만 있는 것·코드에만 있는 것 | 불일치마다 **문서를 고칠지 코드를 고칠지**(155분 이후는 문서만). 문서 수정은 D탭 D2로 |
-| 각 탭 `/export` → S탭 서버 껐다 켜기 → Browser 확인 → T탭 `git tag final` | HANDOFF 실행 방법대로 뜨는가 | 안 뜨면 1줄 예외 수정 → gate → `git tag -f final` |
+| 서버가 불안하면 커밋 → `git tag final` 먼저. S탭: **HANDOFF·사용가이드에 적힌 명령 그대로**(제출 형태 포함) 띄우기 → gate → Browser 확인 → T탭 `git tag final` | 문서 명령대로 뜨는가 (flow.md final 기준) | 안 뜨면 1줄 예외 수정 → gate → `git tag -f final` |
 
 ## 158~170분 · AI 종료, 핸드오프 받은 사람의 눈으로 읽기
 
