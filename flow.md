@@ -18,9 +18,9 @@
 
 | 분 | 단계 | 누가 | 통과 기준 → 다음 |
 |---|---|---|---|
-| 0 | 시작 4줄 → `$task-onboard` | 나·P | RUNPLAN 생김. `docker info`로 데몬 유무 NOTES에 1줄 |
+| 0 | 시작 4줄 → `$task-onboard` | 나·P | RUNPLAN 생김 |
 | 3 / 9 | 담당자 1차·2차 질문 | **나 (내 말로)** | 답을 NOTES 요구사항 표에 Q→A |
-| 5 | `$task-frame` | P | 제출물·**제출 형태**(Dockerfile·실행 명령·사용가이드) 체크리스트 |
+| 5 | `$task-frame` | P | 제출물·**제출 형태** 체크리스트 (README가 정한 실행 방식. Docker면 이때 `docker info`) |
 | 13~20 | PRD (P2) | P | 수용 기준에 **제출 형태 1줄** 포함 → T: `git add -A && git commit -m "docs: prd v1" && git tag prd-v1` |
 | 20 | `$task-verify` / `$task-scaffold` → M1 | V / M | REVIEW 체크리스트 / 뼈대 |
 | 20~65 | **v0** (M1) | M | 아래 **v0 기준** 전부 → `git tag v0` |
@@ -37,8 +37,8 @@
 ### v0 기준 (모두 충족해야 태그)
 1. PRD 3장 v0 범위가 입력 → 처리 → 출력까지 끝까지 돈다
 2. S: `PORT=3000 npm start` → T: `node /tmp/kit/tools/gate.mjs --since prd-v1 --url … --expect …` exit 0
-3. **제출 형태가 있으면** S 끄고 그 형태로 1회 실행 → 같은 gate 한 번 더
-   Docker 예: `docker build -t app . && docker run --rm -e PORT=3000 -p 3000:3000 app`
+3. **README가 정한 제출 형태가 `npm start`와 다르면** S 끄고 그 형태로 1회 실행 → 같은 gate 한 번 더
+   예: Docker `docker build -t app . && docker run --rm -e PORT=3000 -p 3000:3000 app` / Python `python main.py` / CLI·배치는 그 명령 + 출력 파일 확인
 4. Browser로 직접 확인 → `git add -A && git commit -m "feat: e2e v0" && git tag v0`
 
 ### final 기준 (모두 충족해야 태그)

@@ -10,7 +10,7 @@ PRD.md 8장(운영 관점 리스크)과 HANDOFF.md(운영 전환)에 이 관점�
 
 - 기본: JSON 파일 또는 SQLite(`node:sqlite`는 Node 22.13+ 무설치, Python은 `sqlite3` 표준).
 - 저장 계층은 `repo` 인터페이스(list / get / upsert) 뒤에 둔다. 구현 교체만으로 Postgres 전환이 되도록.
-- Docker: 0분에 `docker info`로 확인. 과제가 Dockerfile을 요구하면 v0·final 전에 컨테이너로 1회 실행(flow.md 기준). Postgres 전환은 HANDOFF에 문서로만.
+- 제출 형태(Docker 등)는 README에서 읽어 PRD 수용 기준에 넣는다. Docker면 그때 `docker info`, 그리고 v0·final 전에 컨테이너로 1회 실행(flow.md 기준). Postgres 전환은 HANDOFF에 문서로만.
 
 ## 세션 역할
 
